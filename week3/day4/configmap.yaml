@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-config
+data:
+  APP_NAME: "Spring Demo App"
+  ENVIRONMENT: "Testing"
+  APP_MESSAGE: "Hello! config map successfully accessed"
