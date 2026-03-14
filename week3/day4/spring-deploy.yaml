@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deploy
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springcont
+        image: neerajbala/spring_app:v1
+        ports:
+        - containerPort: 8080
+
+        envFrom:
+        - configMapRef:
+            name: spring-config
+              
+
+        - secretRef:
+            name: spring-secret
